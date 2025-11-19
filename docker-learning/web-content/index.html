@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Docker Compose Test</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 800px;
+            margin: 50px auto;
+            padding: 20px;
+            background-color: #f0f0f0;
+        }
+        h1 {
+            color: #333;
+        }
+        .info {
+            background-color: white;
+            padding: 20px;
+            border-radius: 5px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+    </style>
+</head>
+<body>
+    <h1>Docker Compose Learning Environment</h1>
+    <div class="info">
+        <p>This page is served by nginx running in a Docker container.</p>
+        <p>The container was started using Docker Compose, which orchestrates
+           multiple services defined in docker-compose.yml.</p>
+        <p>This demonstrates how Docker Compose simplifies managing multi-container
+           applications.</p>
+    </div>
+</body>
+</html>
+<div class="info">
+    <h2>Live Updates</h2>
+    <p>Because this directory is mounted as a volume, changes to files appear
+       immediately without restarting the container.</p>
+    <p>This is how you'll develop with Docker - your code lives on your host,
+       mounted into containers for execution.</p>
+</div>

@@ -1,0 +1,21 @@
+services:
+  web:
+    # Use environment variable for version
+    image: nginx:${NGINX_VERSION}
+    container_name: learning-web-server
+    ports:
+      # Use environment variable for port
+      - "${WEB_PORT}:80"
+    volumes:
+      - ./web-content:/usr/share/nginx/html:ro
+    restart: unless-stopped
+    networks:
+      - learning-network
+    # Pass environment variables to the container
+    environment:
+      - NGINX_HOST=localhost
+      - NGINX_PORT=80
+
+networks:
+  learning-network:
+    driver: bridge

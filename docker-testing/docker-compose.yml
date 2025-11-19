@@ -1,0 +1,43 @@
+services:
+  app:
+    build:
+      context: ./app
+      dockerfile: Dockerfile
+    image: test-app:v1
+    container_name: test-application
+    ports:
+      - "3000:3000"
+    environment:
+      - PORT=3000
+      - DATA_DIR=/data
+      - NODE_ENV=development
+    volumes:
+      - app-data:/data
+    restart: unless-stopped
+    networks:
+      - app-network
+    healthcheck:
+      test: ["CMD", "wget", "--quiet", "--tries=1", "--spider", "http://localhost:3000"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 40s
+  
+  # Add a monitoring service that periodically checks the app
+  monitor:
+    image: curlimages/curl:latest
+    container_name: test-monitor
+    networks:
+      - app-network
+    depends_on:
+      - app
+    # Run a loop that requests the app every 10 seconds
+    command: sh -c "while true; do echo 'Checking app...'; curl -s http://app:3000 | grep -o 'counter\">[0-9]*' | grep -o '[0-9]*'; sleep 10; done"
+
+volumes:
+  app-data:
+    driver: local
+
+networks:
+  app-network:
+    driver: bridge

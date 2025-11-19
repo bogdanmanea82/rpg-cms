@@ -1,0 +1,55 @@
+{
+  "compilerOptions": {
+    /* Language and Environment */
+    "target": "ES2022",                          // Modern JavaScript features
+    "lib": ["ES2022"],                           // Available standard libraries
+    "module": "commonjs",                        // Module system (Node.js standard)
+    "moduleResolution": "node",                  // How to resolve module imports
+    
+    /* Emit */
+    "outDir": "./dist",                          // Compiled JavaScript output
+    "rootDir": "./src",                          // TypeScript source root
+    "removeComments": true,                      // Strip comments from output
+    "sourceMap": true,                           // Generate .map files for debugging
+    "declaration": true,                         // Generate .d.ts type definition files
+    "declarationMap": true,                      // Generate source maps for .d.ts files
+    
+    /* Interop Constraints */
+    "esModuleInterop": true,                     // Better CommonJS/ES module compatibility
+    "allowSyntheticDefaultImports": true,        // Allow default imports from modules
+    "forceConsistentCasingInFileNames": true,    // Enforce consistent file name casing
+    
+    /* Type Checking - MAXIMUM STRICTNESS */
+    "strict": true,                              // Enable all strict type checking options
+    "noImplicitAny": true,                       // Error on expressions with implied 'any'
+    "strictNullChecks": true,                    // Null and undefined are distinct types
+    "strictFunctionTypes": true,                 // Strict checking of function types
+    "strictBindCallApply": true,                 // Strict checking of bind/call/apply
+    "strictPropertyInitialization": true,        // Class properties must be initialized
+    "noImplicitThis": true,                      // Error on 'this' with implied 'any'
+    "alwaysStrict": true,                        // Emit 'use strict' in output
+    
+    /* Additional Checks - CATCH MORE MISTAKES */
+    "noUnusedLocals": true,                      // Error on unused local variables
+    "noUnusedParameters": true,                  // Error on unused function parameters
+    "noImplicitReturns": true,                   // Error if not all code paths return
+    "noFallthroughCasesInSwitch": true,         // Error on fallthrough switch cases
+    "noUncheckedIndexedAccess": true,           // Accessing array/object requires checks
+    "noImplicitOverride": true,                  // Ensure 'override' keyword usage
+    "noPropertyAccessFromIndexSignature": true,  // Use bracket notation for dynamic properties
+    
+    /* Completeness */
+    "skipLibCheck": true                         // Skip type checking of .d.ts files (faster)
+  },
+  
+  "include": [
+    "src/**/*"                                   // Compile all files in src directory
+  ],
+  
+  "exclude": [
+    "node_modules",                              // Don't compile dependencies
+    "dist",                                      // Don't compile output directory
+    "**/*.spec.ts",                              // Test files handled by Jest
+    "**/*.test.ts"
+  ]
+}

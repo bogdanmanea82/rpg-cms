@@ -1,0 +1,66 @@
+# ===================================
+# RPG CMS - Git Ignore Configuration
+# ===================================
+
+# Node.js dependencies
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Build outputs
+dist/
+build/
+*.js
+*.js.map
+# But allow JavaScript config files:
+!*.config.js
+!.eslintrc.js
+
+# TypeScript
+*.tsbuildinfo
+
+# Environment variables
+.env
+.env.local
+.env.*.local
+
+# IDE and editor files
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# Operating system files
+.DS_Store
+Thumbs.db
+
+# Testing
+coverage/
+.nyc_output/
+
+# Docker
+.docker/
+
+# Logs
+logs/
+*.log
+
+# Temporary files
+tmp/
+temp/
+*.tmp
+
+# Database files (SQLite for development)
+*.sqlite
+*.sqlite3
+*.db
+
+# Documentation builds (if using tools like Sphinx)
+docs/_build/
+
+# Personal notes (not for repository)
+NOTES.md
+TODO.md
+# ===================================
